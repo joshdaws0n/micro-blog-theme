@@ -1,20 +1,15 @@
 <header>
-  <div class="container">
-    <h2><a href="/">{{ .Site.Title }}</a></h2>
-    <ul class="nav nav-pills nav-fill">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Much longer nav link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled">Disabled</a>
-      </li>
-    </ul>
+  <div class="container py-5">
+    <h2 class="text-center"><a href="/">{{ .Site.Title }}</a></h2>
+    <nav class="nav nav-pills flex-column flex-sm-row">
+      {{ range .Site.Menus.main }}
+        {{ if .Page.Params.redirect }}
+          <a class="flex-sm-fill text-sm-center nav-link" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
+        {{ else }}
+          <a class="flex-sm-fill text-sm-center nav-link" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+        {{ end }}
+      {{ end }}
+    </nav>
   </div>
 </header>
 
