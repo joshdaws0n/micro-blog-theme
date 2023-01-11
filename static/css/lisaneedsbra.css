@@ -1,8 +1,7 @@
 /* HEADER */
-:root {
-    --bs-nav-link-hover-color: #111111 !important;
+.nav-link:focus, .nav-link:hover {
+    color: #111111 !important;
 }
-
 /* BODY */
 
 
