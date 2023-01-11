@@ -1,16 +1,15 @@
 <header>
   <div class="container py-5">
     <h2 class="text-center mb-4"><a href="/">{{ .Site.Title }}</a></h2>
+    {{ $url := .RelPermalink }}<!-- we will need this to determine if links are active -->
     <nav class="nav nav-pills flex-column flex-sm-row">
       {{ range .Site.Menus.main }}
         {{ if .Page.Params.redirect }}
-          <a class="flex-sm-fill text-sm-center nav-link" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
+          <a class="flex-sm-fill text-sm-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
         {{ else }}
-          <a class="flex-sm-fill text-sm-center nav-link" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+          <a class="flex-sm-fill text-sm-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
         {{ end }}
       {{ end }}
     </nav>
-    <p>{{ .Page.Params }}</p>
-    <p>{{ .Permalink }}</p>
   </div>
 </header>
