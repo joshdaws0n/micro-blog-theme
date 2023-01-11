@@ -2,6 +2,11 @@
 .nav-link:focus, .nav-link:hover {
     color: #111111 !important;
 }
+.nav-pills .nav-link.active {
+    border-radius: 0 !important;
+    color: #111111 !important;
+    border: 4px solid #111;
+}
 /* BODY */
 
 
