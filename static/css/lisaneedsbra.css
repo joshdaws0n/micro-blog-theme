@@ -5,7 +5,9 @@
 .nav-pills .nav-link.active {
     border-radius: 0 !important;
     color: #111111 !important;
-    border: 4px solid #111;
+    background-color: unset !important;
+    border: 4px solid #111 !important;
+    box-shadow: 10px 10px #373737;
 }
 /* BODY */
 
