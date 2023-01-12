@@ -11,6 +11,8 @@
       <div class="row justify-content-center">
 		{{ block "main" . }}{{ end }}
       </div>
+      {{ $pag := $.Paginator }}
+
       <nav id="post-nav">
         {{ if $pag.HasPrev }}
             <span class="prev">
