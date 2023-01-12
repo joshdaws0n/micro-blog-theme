@@ -24,7 +24,7 @@ li > ul, li > ol { margin-bottom: 0; }
 h1, h2, h3, h4, h5, h6 { font-weight: 300; }
 
 /** Links */
-a { color: #111111; text-decoration: none; }
+a { color: #111111; text-decoration: none; font-style: italic;}
 a:visited { color: #4d4e4f; }
 a:hover { color: #111111; text-decoration: underline; }
 
