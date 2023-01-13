@@ -1,7 +1,7 @@
 <header>
   <div class="container py-5">
     {{ $url := .RelPermalink }}<!-- we will need this to determine if links are active -->
-    <nav class="nav nav-pills flex-column flex-lg-row gap-3">
+    <nav class="nav nav-pills flex-column flex-lg-row gap-3 d-none display-md-block">
       <a class="flex-md-fill text-md-center nav-link" href="/">{{ .Site.Title }}</a>
       {{ range .Site.Menus.main }}
         {{ if .Page.Params.redirect }}
@@ -11,5 +11,26 @@
         {{ end }}
       {{ end }}
     </nav>
+    <ul class="nav nav-pills display-md-none">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Links</a>
+        <ul class="dropdown-menu">
+          {{ range .Site.Menus.main }}
+            {{ if .Page.Params.redirect }}
+              <li>
+                <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .Page.Params.redirect }}">
+                  {{ .Name }}
+                </a>
+              </li>
+            {{ else }}
+              <li>
+                <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .URL | relLangURL | safeURL }}">
+                  {{ .Name }}
+                </a>
+              </li>
+            {{ end }}
+        </ul>
+      </li>
+    </ul>
   </div>
 </header>
