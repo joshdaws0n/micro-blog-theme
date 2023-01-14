@@ -11,27 +11,32 @@
         {{ end }}
       {{ end }}
     </nav>
-    <ul class="nav nav-pills display-md-none">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Links</a>
-        <ul class="dropdown-menu">
-          {{ range .Site.Menus.main }}
-            {{ if .Page.Params.redirect }}
-              <li>
-                <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .Page.Params.redirect }}">
-                  {{ .Name }}
-                </a>
-              </li>
-            {{ else }}
-              <li>
-                <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .URL | relLangURL | safeURL }}">
-                  {{ .Name }}
-                </a>
-              </li>
+    <nav class="d-flex display-md-none mb-3">
+      <div class="p-2">
+        <a class="nav-link" href="/">{{ .Site.Title }}</a>
+      </div>
+      <div class="ms-auto p-2">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Links</a>
+          <ul class="dropdown-menu">
+            {{ range .Site.Menus.main }}
+              {{ if .Page.Params.redirect }}
+                <li>
+                  <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .Page.Params.redirect }}">
+                    {{ .Name }}
+                  </a>
+                </li>
+              {{ else }}
+                <li>
+                  <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .URL | relLangURL | safeURL }}">
+                    {{ .Name }}
+                  </a>
+                </li>
+              {{ end }}
             {{ end }}
-          {{ end }}
-        </ul>
-      </li>
-    </ul>
+          </ul>
+        </li>
+      </div>
+    </nav>
   </div>
 </header>
