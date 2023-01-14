@@ -24,7 +24,7 @@
     --bs-dropdown-inner-border-radius: 0;
     --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
     --bs-dropdown-divider-margin-y: 0.5rem;
-    --bs-dropdown-box-shadow: 0;
+    --bs-dropdown-box-shadow: 6px 6px #373737;
     --bs-dropdown-link-color: #212529;
     --bs-dropdown-link-hover-color: #1e2125;
     --bs-dropdown-link-hover-bg: #e9ecef;
@@ -36,6 +36,7 @@
     --bs-dropdown-header-color: #6c757d;
     --bs-dropdown-header-padding-x: 1rem;
     --bs-dropdown-header-padding-y: 0.5rem;
+    box-shadow: var(--bs-dropdown-box-shadow);
 }
 /* BODY */
 .h-entry {
