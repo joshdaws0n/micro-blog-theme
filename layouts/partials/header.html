@@ -1,23 +1,23 @@
 <header>
   <div class="container py-5">
     {{ $url := .RelPermalink }}<!-- we will need this to determine if links are active -->
-    <nav class="nav nav-pills flex-column flex-lg-row gap-3 d-none display-md-block">
-      <a class="flex-md-fill text-md-center nav-link" href="/">{{ .Site.Title }}</a>
+    <nav class="nav nav-pills flex-column flex-lg-row gap-3 d-none d-md-block">
+      <a class="flex-md-fill text-center nav-link" href="/">{{ .Site.Title }}</a>
       {{ range .Site.Menus.main }}
         {{ if .Page.Params.redirect }}
-          <a class="flex-md-fill text-md-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
+          <a class="flex-md-fill text-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
         {{ else }}
-          <a class="flex-md-fill text-md-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+          <a class="flex-md-fill text-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
         {{ end }}
       {{ end }}
     </nav>
-    <nav class="d-flex display-md-none mb-3">
+    <nav class="d-flex d-md-none mb-3">
       <div class="p-2">
-        <a class="nav-link" href="/">{{ .Site.Title }}</a>
+        <a class="nav-link text-center" href="/">{{ .Site.Title }}</a>
       </div>
       <div class="ms-auto p-2">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Links</a>
+          <a class="nav-link text-center dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Links</a>
           <ul class="dropdown-menu">
             {{ range .Site.Menus.main }}
               {{ if .Page.Params.redirect }}
