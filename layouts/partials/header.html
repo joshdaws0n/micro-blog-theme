@@ -1,7 +1,7 @@
 <header>
   <div class="container py-5">
     {{ $url := .RelPermalink }}<!-- we will need this to determine if links are active -->
-    <nav class="nav nav-pills flex-column flex-lg-row gap-3 d-none d-md-block">
+    <nav class="nav nav-pills flex-column flex-lg-row gap-3 d-none d-md-flex">
       <a class="flex-md-fill text-center nav-link" href="/">{{ .Site.Title }}</a>
       {{ range .Site.Menus.main }}
         {{ if .Page.Params.redirect }}
