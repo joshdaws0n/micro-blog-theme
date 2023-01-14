@@ -4,11 +4,13 @@
     <nav class="nav nav-pills flex-column flex-lg-row gap-3 d-none d-lg-flex">
       <a class="flex-md-fill text-center nav-link" href="/">{{ .Site.Title }}</a>
       {{ range .Site.Menus.main }}
-        {{ if .Page.Params.redirect }}
-          <a class="flex-md-fill text-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
-        {{ else }}
-          <a class="flex-md-fill text-center nav-link {{ if eq .URL $url }}active{{ end }}" href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
-        {{ end }}
+      {{ if .Page.Params.redirect }}
+      <a class="flex-md-fill text-center nav-link {{ if eq .URL $url }}active{{ end }}"
+        href="{{ .Page.Params.redirect }}">{{ .Name }}</a>
+      {{ else }}
+      <a class="flex-md-fill text-center nav-link {{ if eq .URL $url }}active{{ end }}"
+        href="{{ .URL | relLangURL | safeURL }}">{{ .Name }}</a>
+      {{ end }}
       {{ end }}
     </nav>
     <nav class="d-flex d-lg-none mb-3">
@@ -16,26 +18,25 @@
         <a class="nav-link text-center" href="/">{{ .Site.Title }}</a>
       </div>
       <div class="ms-auto p-2">
-        <li class="nav-item dropdown">
-          <a class="nav-link text-center dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Links</a>
-          <ul class="dropdown-menu">
-            {{ range .Site.Menus.main }}
-              {{ if .Page.Params.redirect }}
-                <li>
-                  <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .Page.Params.redirect }}">
-                    {{ .Name }}
-                  </a>
-                </li>
-              {{ else }}
-                <li>
-                  <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .URL | relLangURL | safeURL }}">
-                    {{ .Name }}
-                  </a>
-                </li>
-              {{ end }}
-            {{ end }}
-          </ul>
-        </li>
+        <a class="nav-link text-center dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+          aria-expanded="false">Links</a>
+        <ul class="dropdown-menu">
+          {{ range .Site.Menus.main }}
+          {{ if .Page.Params.redirect }}
+          <li>
+            <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .Page.Params.redirect }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ else }}
+          <li>
+            <a class="dropdown-item" {{ if eq .URL $url }}active{{ end }} href="{{ .URL | relLangURL | safeURL }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ul>
       </div>
     </nav>
   </div>
