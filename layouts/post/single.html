@@ -27,11 +27,24 @@
 </div>
 <div class="col-md-4">
 	<div class="post h-entry mb-4">
-		some fancy post meta!
+		{{ if .Params.categories }}
+		<div class="archive_categories">
+			{{ with .Params.categories }}
+			{{ range . }}
+			{{ $name := . }}
+			{{ with $.Site.GetPage "taxonomy" (printf "categories/%s" $name) | default ($.Site.GetPage "taxonomy"
+			(printf "categories/%s" ($name | urlize))) }}
+			<p><a href="{{ .Permalink }}" class="p-category">{{ $name }}</a></p>
+			{{ end }}
+			{{ end }}
+			{{ end }}
+		</div>
+		{{ end }}
 	</div>
 </div>
 
+{{ if .Site.Params.include_conversation }}
 <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
-
+{{ end }}
 
 {{ end }}
