@@ -44,7 +44,9 @@
 	<div class="post h-entry mb-4 post-meta-box">
 		{{ if .Site.Params.include_conversation }}
 			<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
-		{{ end }}	
+		{{ end }}
+		<hr>
+		{{ partial "conversation-link.html" . }}
 	</div>
 </div>
 
