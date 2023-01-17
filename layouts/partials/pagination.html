@@ -2,17 +2,13 @@
 
 <nav id="post-nav">
     {{ if $pag.HasPrev }}
-        <span class="prev">
-			<a href="{{ $pag.Prev.URL }}" title="Previous Page">
-				<span class="arrow">←</span> Newer Posts
-			</a>
-        </span>
+        <a class="text-center nav-link active" href="{{ $pag.Prev.URL }}">
+            <i class="bi bi-arrow-left"></i>Newer
+        </a>
     {{ end }}
     {{ if $pag.HasNext }}
-        <span class="next">
-            <a href="{{ $pag.Next.URL }}">
-                Older Posts <span class="arrow">→</span>
-            </a>
-        </span>
+        <a class="text-center nav-link active" href="{{ $pag.Next.URL }}">
+            <i class="bi bi-arrow-right"></i>Older
+        </a>
     {{ end }}
 </nav>
