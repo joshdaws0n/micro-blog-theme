@@ -53,9 +53,17 @@
 .grid-img {
     width: 100% !important;
     height: auto !important;
-    aspect-ratio: 1 !important; /* will make width equal to height (500px container) */
-    object-fit: cover !important; /* use the one you need */
 }
+
+@media (min-width: 768px) {
+    .grid-img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 !important; /* will make width equal to height (500px container) */
+        object-fit: cover !important; /* use the one you need */
+    }
+}
+
 
 /* SINGLES */
 
