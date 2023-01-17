@@ -1,12 +1,11 @@
 {{ define "main" }}
 <div class="col-md-8">
 	<div class="post h-entry mb-4">
+		{{ if .Title }}
 		<header class="post-header">
-			{{ if .Title }}
 			<h1 class="p-name">{{ .Title }}</h1>
-			{{ end }}
 		</header>
-
+		{{ end }}
 		<article class="post-content e-content">
 			{{ .Content }}
 		</article>
@@ -42,10 +41,11 @@
 		</p>
 		{{ end }}
 	</div>
+	<div class="post h-entry mb-4 post-meta-box">
+		{{ if .Site.Params.include_conversation }}
+			<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
+		{{ end }}	
+	</div>
 </div>
-
-{{ if .Site.Params.include_conversation }}
-<script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
-{{ end }}
 
 {{ end }}
