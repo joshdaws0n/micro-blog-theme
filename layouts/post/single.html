@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="post h-entry">
-
+TEST
   <header class="post-header">
 	{{ if .Title }}
 	  	<h1 class="p-name">{{ .Title }}</h1>
@@ -19,8 +19,7 @@
 
 </div>
 
-{{ if .Site.Params.include_conversation }}
 <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
-{{ end }}
+
 
 {{ end }}
