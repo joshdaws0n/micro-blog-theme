@@ -28,7 +28,8 @@
 <div class="col-md-4">
 	<div class="post h-entry mb-4">
 		{{ if .Params.categories }}
-		<div class="archive_categories">
+		<p class="post-meta">
+			Categories:
 			{{ with .Params.categories }}
 			{{ range . }}
 			{{ $name := . }}
@@ -38,7 +39,7 @@
 			{{ end }}
 			{{ end }}
 			{{ end }}
-		</div>
+		</p>
 		{{ end }}
 	</div>
 </div>
