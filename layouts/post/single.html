@@ -1,25 +1,34 @@
 {{ define "main" }}
-<div class="post h-entry mb-4">
-  <header class="post-header">
-	{{ if .Title }}
-	  	<h1 class="p-name">{{ .Title }}</h1>
-  	{{ end }}
-    <p class="post-meta {{ if gt .ReadingTime 1 }}mb-0{{ end }}">
-	<time class="dt-published" datetime="{{ .Date.Format "2006-01-02 15:04:05 -0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-	{{ if .Params.author }}
-	    by {{ .Params.author.name }}
-	{{ end }}</p>
-	{{ if gt .ReadingTime 1 }}
-		<p class="post-meta">
-			<span>Reading Time: {{ .ReadingTime }} minutes</span>
-		</p>
-	{{ end }}
-  </header>
+<div class="col-md-8">
+	<div class="post h-entry mb-4">
+		<header class="post-header">
+			{{ if .Title }}
+			<h1 class="p-name">{{ .Title }}</h1>
+			{{ end }}
+			<p class="post-meta {{ if gt .ReadingTime 1 }}mb-0{{ end }}">
+				<time class="dt-published" datetime="{{ .Date.Format " 2006-01-02 15:04:05 -0700" }}">{{ .Date.Format
+					"Jan 2, 2006" }}</time>
+				{{ if .Params.author }}
+				by {{ .Params.author.name }}
+				{{ end }}
+			</p>
+			{{ if gt .ReadingTime 1 }}
+			<p class="post-meta">
+				<span>Reading Time: {{ .ReadingTime }} minutes</span>
+			</p>
+			{{ end }}
+		</header>
 
-  <article class="post-content e-content">
-	{{ .Content }}
-  </article>
+		<article class="post-content e-content">
+			{{ .Content }}
+		</article>
 
+	</div>
+</div>
+<div class="col-md-4">
+	<div class="post h-entry mb-4">
+		some fancy post meta!
+	</div>
 </div>
 
 <script type="text/javascript" src="https://micro.blog/conversation.js?url={{ .Permalink }}"></script>
