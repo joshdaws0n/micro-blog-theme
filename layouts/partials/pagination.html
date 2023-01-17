@@ -2,12 +2,12 @@
 
 <nav id="post-nav">
     {{ if $pag.HasPrev }}
-        <a class="text-center nav-link active" href="{{ $pag.Prev.URL }}">
+        <a class="text-center nav-link boxy" href="{{ $pag.Prev.URL }}">
             <i class="bi bi-arrow-left"></i>Newer
         </a>
     {{ end }}
     {{ if $pag.HasNext }}
-        <a class="text-center nav-link active" href="{{ $pag.Next.URL }}">
+        <a class="text-center nav-link boxy" href="{{ $pag.Next.URL }}">
             <i class="bi bi-arrow-right"></i>Older
         </a>
     {{ end }}

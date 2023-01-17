@@ -2,7 +2,7 @@
 .nav-link:focus, .nav-link:hover {
     color: #111111 !important;
 }
-.nav-pills .nav-link.active {
+.nav-pills .nav-link.active, .boxy {
     border-radius: 0 !important;
     color: #111111 !important;
     background-color: unset !important;
