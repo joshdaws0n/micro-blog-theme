@@ -3,7 +3,7 @@
 	{{- $list := where .Site.Pages ".Params.photos" "!=" nil -}}
 	{{- $len := (len $list) -}}
 	{{ range $index, $value := $list }}
-        <div class="col-md-4">
+        <div class="col-md-4 mb-3 mb-md-4">
 		    <a href="{{ .Permalink }}">
 		    	{{ range first 1 .Params.photos }}
 		    		<img src="{{ . }}" class="grid-img" loading="lazy" />
